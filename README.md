@@ -1,3 +1,7 @@
+# CHANGE LOG
+
+1. Get interface value instead of pointer address for primitive pointer field (eg., int8, string, bool)
+
 # Archived project. No maintenance. 
 
 This project is not maintained anymore and is archived. Feel free to fork and

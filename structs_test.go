@@ -44,14 +44,17 @@ func TestStructIndexes(t *testing.T) {
 }
 
 func TestMap(t *testing.T) {
+	d := "abc"
 	var T = struct {
 		A string
 		B int
 		C bool
+		D *string
 	}{
 		A: "a-value",
 		B: 2,
 		C: true,
+		D: &d,
 	}
 
 	a := Map(T)
@@ -61,7 +64,7 @@ func TestMap(t *testing.T) {
 	}
 
 	// we have three fields
-	if len(a) != 3 {
+	if len(a) != 4 {
 		t.Errorf("Map should return a map of len 3, got: %d", len(a))
 	}
 
@@ -75,7 +78,7 @@ func TestMap(t *testing.T) {
 		return false
 	}
 
-	for _, val := range []interface{}{"a-value", 2, true} {
+	for _, val := range []interface{}{"a-value", 2, true, d} {
 		if !inMap(val) {
 			t.Errorf("Map should have the value %v", val)
 		}
